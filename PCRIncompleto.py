@@ -58,8 +58,17 @@ def cov_matrix(data):
 #Variable que guarda la matriz de datos estandarizada, es decir, con la resta del promedio y dividida en la desviacion estandar.
 datosEstandarizados = estandariza(datamatrix)
 
+#esta variable guarda la matriz de covarianza, hecha con la implementacion propia.
 matrizCov = cov_matrix(datosEstandarizados)
 
 
+
+#Calcule los autovalores y autovectores de la matriz de covarianza y los imprima (para estopuede usar los paquetes de linalg de numpy). Su mensaje debe indicar explicitamente cual es cada autovector y su autovalor correspondiente.
+eigvalues,eigvectors = np.linalg.eig(matrizCov)
+
+print "Estos son los valores propios de la matriz de covarianza: "
+print eigvalues
+print "Estos son los vectores propios de la matriz de covarianza: "
+print eigvectors
 
 
