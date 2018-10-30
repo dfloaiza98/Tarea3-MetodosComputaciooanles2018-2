@@ -43,5 +43,23 @@ def estandariza(data):
     return data
 
 
+#Funcion que calcula la matriz de covarianza.
+def cov_matrix(data):
+    cov=np.zeros((30,30))
+    for i in range (30):
+        for j in range (30):
+            s=0
+            for k in range (569):
+                s+=data[i][k]*data[j][k]
+            s=s/(569-1)
+            cov[i][j]=s
+    return cov
+
+#Variable que guarda la matriz de datos estandarizada, es decir, con la resta del promedio y dividida en la desviacion estandar.
+datosEstandarizados = estandariza(datamatrix)
+
+matrizCov = cov_matrix(datosEstandarizados)
+
+
 
 
