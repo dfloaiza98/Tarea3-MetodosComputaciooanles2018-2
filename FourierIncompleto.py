@@ -22,3 +22,19 @@ plt.ylabel("Signal recorded")
 plt.legend(loc='lower left')
 plt.savefig("LoaizaDaniel_signal.pdf")
 
+#Implementacion propia de la Transformada de Fourier Discreta. 
+
+def ordinary_dft(x):
+    trX=np.zeros(len(x))
+    N=len(x)
+    for n in range(N):
+        s=0
+        for k in range(N):
+            s+=x[k]*cmath.exp(-2*math.pi*1j*n*k/N)
+        trX[n]=(s)
+    return trX
+
+
+
+
+
