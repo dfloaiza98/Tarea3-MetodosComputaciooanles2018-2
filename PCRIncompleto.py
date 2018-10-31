@@ -71,17 +71,56 @@ print eigvalues
 print "Estos son los vectores propios de la matriz de covarianza: "
 print eigvectors
 
+#Imprima un mensaje que diga cuales son los parametros mas importantes en base a las componentes de los autovectores.
 
 
-#Intento de la proyeccion de PC1 contra PC2.
-
-datosproyectadosenPC1 = (np.dot(eigvectors[0],datosEstandarizados) / np.dot(eigvectors[0],eigvectors[0]) )
-datosproyectadosenPC2 = (np.dot(eigvectors[1],datosEstandarizados) / np.dot(eigvectors[1],eigvectors[1]) )
+print "Los parametros mas importantes son los dos primeros, dado que son los dos primeros autovalores los que tienen la magnitud mas grande, y eso nos dice que son los parametros que mas informacion contiene sobre el fenomeno que se esta estudiando."
 
 
-plt.figure()
-plt.scatter(datosproyectadosenPC1,datosproyectadosenPC2)
-plt.show()
+
+#Haga una proyeccion de sus datos en el sistema de coordenadas PC1, PC2 y grafique estos datos. Use un color distinto para el diagnostico maligno y el benigno y la guarde dicha grafica sin mostrarla en ApellidoNombre_PCA.pdf.
+
+
+
+# Hay una parte del codigo que tiene un error que no se como arreglar pero se que el codigo no esta del todo mal.
+mal=[]
+bien=[]
+for i in range(len(vectorMoB)):
+	if(vectorMoB[i]==1):
+		mal.append(i)
+	else:
+		bien.append(i)
+
+
+#malignos=[]
+#benignos=[]
+#for i in range(len(mal)):		
+	#malignos.append(datosEstandarizados[mal[i]])	
+
+#for i in range(len(bien)):
+	#benignos.append(datosEstandarizados[bien[i]])
+
+#cancerSi= np.matmul(malignos,eigvectors)
+#cancerNo= np.matmul(benignos,eigvectors)
+	
+#plt.figure()
+#plt.scatter(cancerSi[:,0],cancerSi[:,1],label="M")
+#plt.scatter(cancerNo[:,0],cancerNo[:,1],color="red",label="B")
+#plt.legend(loc='lower left')
+#plt.xlabel("PC2")
+#plt.ylabel("PC1")
+#plt.savefig("LoaizaDaniel_PCA.pdf")
+
+
+
+#Imprima un mensaje diciendo si el metodo de PCA es util para hacer esta clasificacion, sino sirve o si puede ayudar al diagnostico para ciertos pacientes, argumentando claramente su posicion.
+
+
+print "Si es muy util porque PCA separa en dos grandes grupos los pacientes que tienen diagnostico maligno o benigno, ademas si conocemos cuales son los dos parametros que mayor poder de predidiccion tienen sobre el fenomeno en cuestion, PCA reduce la cantidad de informacion con la que se debe trabajar de manera optima"
+
+
+
+
 
 
 
