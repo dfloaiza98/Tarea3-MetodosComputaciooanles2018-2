@@ -72,3 +72,18 @@ print "Estos son los vectores propios de la matriz de covarianza: "
 print eigvectors
 
 
+
+#Intento de la proyeccion de PC1 contra PC2.
+
+datosproyectadosenPC1 = (np.dot(eigvectors[0],datosEstandarizados) / np.dot(eigvectors[0],eigvectors[0]) )
+datosproyectadosenPC2 = (np.dot(eigvectors[1],datosEstandarizados) / np.dot(eigvectors[1],eigvectors[1]) )
+
+
+plt.figure()
+plt.scatter(datosproyectadosenPC1,datosproyectadosenPC2)
+plt.show()
+
+
+
+
+
