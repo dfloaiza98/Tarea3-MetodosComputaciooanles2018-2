@@ -52,6 +52,18 @@ plt.savefig("LoaizaDaniel_TF.pdf")
 print "Las principales frecuencias son: "
 print frequ[(DFTdatos)>100]
 
+#Filtro pasa bandas con frecuencia de corte = 1000 Hz.	
+
+frecdecorte=1000
+DFTdatos[np.abs(frequ)>frecdecorte]=0
+inverseTrans=ifft(DFTdatos)
+plt.figure()
+plt.plot(signaldata[:,0],np.real(inverseTrans))
+plt.title("Filter of signal.dat")
+plt.ylabel("Real signal")
+plt.xlabel("Tiempo")
+#plt.savefig("LoaizaDaniel_filtrada.pdf")
+
 
 
 
