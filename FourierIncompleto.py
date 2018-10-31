@@ -34,6 +34,27 @@ def ordinary_dft(x):
         trX[n]=(s)
     return trX
 
+#Ploteo de la transformada de Fourier de los datos signal.dat
+xdata = signaldata[:,0]
+DFTdatos = ordinary_dft(signaldata[:,1])
+frequ = fftfreq(len(signaldata),xdata[1]-xdata[0])
+
+plt.figure()
+plt.plot(frequ,abs(DFTdatos), color = "blue")
+plt.title("Discrete Fourier Transform of signal.dat")
+plt.xlabel("Frequency(Hz)")
+plt.ylabel("Amplitude")
+plt.xlim([-700,700])
+plt.savefig("LoaizaDaniel_TF.pdf")
+
+
+#Mensaje indicando cuales son las principales frecuencias.
+print "Las principales frecuencias son: "
+print frequ[(DFTdatos)>100]
+
+
+
+
 
 
 
